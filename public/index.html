@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Websockets - WearHacks 2015</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style media="screen">
+			.reveal section img {
+				background-color: #FFF;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>WearHacks 2015</h1>
+					<h3>How do you communicate?</h3>
+					<p>
+						<small>by Mathieu Gagn&eacute;</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>['hip', 'hip']</h2>
+					<h3 class='fragment'>Hip Hip Array!</h3>
+				</section>
+
+        <section>
+          <h3>Who Am I</h3>
+
+          <aside class="notes">
+            I spend my work days writing ruby for web applications and scripts alike.
+            I do networky things and all. Unfortunately I don't have the chance to play
+            more with the Internet of Things and making my house the nerdiest place ever.
+          </aside>
+        </section>
+
+        <section>
+          <h3>Ajax Polling</h3>
+          <img src="/img/ajax.png" alt="" />
+
+        </section>
+
+				<section>
+					<h3>Ajax Polling</h3>
+          <img src="/img/are-we-there-yet.jpg" alt="" />
+				</section>
+
+        <section>
+          <h3>Ajax Long Polling</h3>
+          <img src="/img/ajax-long-polling.png" alt="" />
+        </section>
+
+				<section>
+					<h3>Server-Sent Events</h3>
+          <img src="/img/server-sent-events.png" alt="" />
+				</section>
+
+        <section>
+					<h4>Flash</h4>
+					<h4>Forever iframe</h4>
+					<h4>And other streaming connections</h4>
+        </section>
+
+        <section>
+          <h2>But I want Real-Time!</h2>
+          <aside class="notes">
+            However, all of these work-arounds share one problem: They carry the overhead of HTTP,
+            which doesn’t make them well suited for low latency applications.
+            The WebSocket specification introduces an API for persistent connection between the client and the server
+            where both parties can start sending data at any time.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Bidirectional Realtime</h2>
+          <aside class="notes">
+            Although SSE and pub/sub are pretty close to what we want, they are
+            still missing low latency bidirectionality.
+          </aside>
+        </section>
+
+        <section>
+	        <img src="/img/icon-websocket.png" alt="" />
+
+          <aside class="notes">
+            WebSockets are often used for chat applications, whiteboard collaboration, live tickers and games.
+            Whenever you want to update all browsers
+            with everyone else's information. You also want the players to send
+            their movements along.
+          </aside>
+        </section>
+
+				<section>
+					<h2>WebSockets</h2>
+          <ul>
+            <li>Cross Origin Communication</li>
+            <li>Realtime</li>
+            <li>Bidirectional</li>
+          </ul>
+				</section>
+
+				<section>
+          <img src="/img/websocket.png" alt="" />
+				</section>
+
+        <section>
+          <h2>WebSocket libraries for supported runtimes</h2>
+          <ul>
+            <li>(NodeJS) socket.io, ws, WebSocket-Node</li>
+            <li>(Ruby) EventMachine, Faye Websocket</li>
+            <li>(Python) Websocket-For-Python, Twisted, Autobahn, pywebsocket, Tornado</li>
+            <li>(Java) Grizzly, Atmosphere, Jetty</li>
+            <li>(PHP) Rachet, phpwebsocket</li>
+            <li>(C++) libwebsockets</li>
+            <li>(Errlang) Shirasu.ws</li>
+          </ul>
+        </section>
+
+        <section>
+          <pre><code class='js javascript' data-trim>var ws = new WebSocket("ws://example.com/")</code></pre>
+          <pre class='fragment'><code class='js javascript' data-trim>ws.onopen = function(event) {
+  console.log('WebSocket opened.');
+}
+
+ws.onclose = function(event) {
+  console.log('WebSocket closed.');
+  reconnect();
+}</code></pre>
+          <pre class='fragment'><code class='js javascript' data-trim>ws.onerror = function(event) {
+  var notification = new Notification(event);
+  reconnect();
+}</code></pre>
+          <pre class='fragment'><code class='js javascript' data-trim>ws.onmessage = function(event) {
+  console.log(event.data);
+}
+</code></pre>
+          <pre class='fragment'><code class='js javascript' data-trim>ws.send("Whatever you want.");</code></pre>
+        </section>
+
+				<section>
+					<img src="/img/neo-knows.jpg" alt="" />
+				</section>
+
+        <section>
+          <h2>Third-Party to your help</h2>
+          <ul>
+            <li>Pusher</li>
+            <li>Socket.io</li>
+            <li>PubNub</li>
+            <li>SocketCluster (Node.js)</li>
+            <li>SockJS</li>
+            <li>Firebase</li>
+            <li>etc.</li>
+          </ul>
+
+          <aside class="notes">
+            Great documentation, usually featured a free sandbox account, easy demo 'chat app'.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Live dangerously!</h2>
+          <h2>Manufacturer War - Live Demo</h2>
+					<h4><a href='http://bit.ly/wearhacks-websockets' target="_blank">http://bit.ly/wearhacks-websockets</a></h4>
+        </section>
+
+				<section>
+					<h2>This example is online</h2>
+					<a href='https://github.com/mathieugagne/manufacturer-battle' target="_blank">https://github.com/mathieugagne/manufacturer-battle</a>
+				</section>
+
+        <section>
+          <pre><code data-trim>while(!asleep()) hack++</code></pre>
+        </section>
+
+				<section>
+					<h4><a href='http://bit.ly/wearhacks-warmonger' target="_blank">http://bit.ly/wearhacks-warmonger</a></h4>
+					<h4><a href='http://bit.ly/wearhacks-warmonger-countries' target="_blank">http://bit.ly/wearhacks-warmonger-countries</a></h4>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
