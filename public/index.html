@@ -32,11 +32,11 @@
 
       <div class="slides">
         <section data-background="img/vigilant-global-presentation-wide.jpg">
-          <h1>Welcome!</h1>
-          <aside class="notes">
-            We are proud to sponsor CodeJam this year.
-            IT firm that creates its own trading systems.
-          </aside>
+          <h1>CodeJam 2015</h1>
+          <h3>Conquer the World with WebSockets</h3>
+          <p>
+            <small>by Mathieu Gagn&eacute;</small>
+          </p>
         </section>
 
         <section data-background="img/vigilant-global-presentation-wide.jpg">
@@ -82,22 +82,6 @@
           <aside class="notes">
             WebSocket allow for bi-directional realtime communication between devices.
           </aside>
-        </section>
-
-        <section data-background="img/vigilant-global-presentation-wide.jpg">
-          <h1>Have Fun!</h1>
-
-          <aside class="notes">
-            I can't wait to see your projects tomorrow.
-          </aside>
-        </section>
-
-        <section>
-          <h1>CodeJam 2015</h1>
-          <h3>Conquer the World with WebSockets</h3>
-          <p>
-            <small>by Mathieu Gagn&eacute;</small>
-          </p>
         </section>
 
         <section>
@@ -191,12 +175,13 @@
           <h2>WebSocket libraries for supported runtimes</h2>
           <ul>
             <li>(NodeJS) socket.io, ws, WebSocket-Node</li>
-            <li>(Ruby) EventMachine, Faye Websocket</li>
+            <li>(Ruby) EventMachine, Faye Websocket, websocket-client-simple</li>
             <li>(Python) Websocket-For-Python, Twisted, Autobahn, pywebsocket, Tornado</li>
             <li>(Java) Grizzly, Atmosphere, Jetty</li>
             <li>(PHP) Rachet, phpwebsocket</li>
             <li>(C++) libwebsockets</li>
             <li>(Errlang) Shirasu.ws</li>
+            <li>(Go) supp lib, Gorilla Websocket</li>
           </ul>
         </section>
 
@@ -204,9 +189,8 @@
           <pre><code class='js javascript' data-trim>var ws = new WebSocket("ws://example.com/")</code></pre>
           <pre class='fragment'><code class='js javascript' data-trim>ws.onopen = function(event) {
   console.log('WebSocket opened.');
-}
-
-  ws.onclose = function(event) {
+}</code></pre>
+          <pre class='fragment'><code class='js javascript' data-trim>ws.onclose = function(event) {
   console.log('WebSocket closed.');
   reconnect();
 }</code></pre>
@@ -257,8 +241,16 @@
         </section>
 
         <section>
-         <h4><a href='http://bit.ly/wearhacks-warmonger' target="_blank">http://bit.ly/wearhacks-warmonger</a></h4>
-         <h4><a href='http://bit.ly/wearhacks-warmonger-countries' target="_blank">http://bit.ly/wearhacks-warmonger-countries</a></h4>
+          <h4><a href='http://bit.ly/wearhacks-warmonger' target="_blank">http://bit.ly/wearhacks-warmonger</a></h4>
+          <h4><a href='http://bit.ly/wearhacks-warmonger-countries' target="_blank">http://bit.ly/wearhacks-warmonger-countries</a></h4>
+        </section>
+
+        <section data-background="img/vigilant-global-presentation-wide.jpg">
+          <h1>Have Fun!</h1>
+
+          <aside class="notes">
+            I can't wait to see your projects tomorrow.
+          </aside>
         </section>
 
       </div>
